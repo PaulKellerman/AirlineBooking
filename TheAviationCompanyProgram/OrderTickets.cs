@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace TheAviationCompanyProgram
 {
-    public partial class Form1 : Form
+    public partial class OrderTickets : Form
     {
-        public Form1()
+        public OrderTickets()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Menu2 menu2 = new Menu2();
+            menu2.Show();
         }
     }
 }
