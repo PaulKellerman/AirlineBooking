@@ -38,5 +38,12 @@ namespace TheAviationCompanyProgram
             Menu1 menu1 = new Menu1();
             menu1.Show();
         }
+
+        private void ShowDataTool_Click(object sender, EventArgs e)
+        {
+            AddDataF addDataForm = new AddDataF();
+            addDataForm.Show();
+            this.Close();
+        }
     }
 }

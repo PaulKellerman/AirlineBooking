@@ -33,7 +33,7 @@
             this.ChoiceToolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.AddDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.просмотретьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowDataTool = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -73,7 +73,7 @@
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddDataToolStripMenuItem,
-            this.просмотретьДанныеToolStripMenuItem});
+            this.ShowDataTool});
             this.toolStripDropDownButton1.Font = new System.Drawing.Font("Open Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -88,11 +88,12 @@
             this.AddDataToolStripMenuItem.Text = "Добавить данные";
             this.AddDataToolStripMenuItem.Click += new System.EventHandler(this.добавитьДанныеToolStripMenuItem_Click);
             // 
-            // просмотретьДанныеToolStripMenuItem
+            // ShowDataTool
             // 
-            this.просмотретьДанныеToolStripMenuItem.Name = "просмотретьДанныеToolStripMenuItem";
-            this.просмотретьДанныеToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.просмотретьДанныеToolStripMenuItem.Text = "Просмотреть данные";
+            this.ShowDataTool.Name = "ShowDataTool";
+            this.ShowDataTool.Size = new System.Drawing.Size(203, 22);
+            this.ShowDataTool.Text = "Просмотреть данные";
+            this.ShowDataTool.Click += new System.EventHandler(this.ShowDataTool_Click);
             // 
             // label2
             // 
@@ -177,7 +178,7 @@
         private System.Windows.Forms.ToolStrip ChoiceToolStrip;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem AddDataToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem просмотретьДанныеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ShowDataTool;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;

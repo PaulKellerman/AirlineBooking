@@ -23,5 +23,15 @@ namespace TheAviationCompanyProgram
             Menu2 menu2 = new Menu2();
             menu2.Show();
         }
+
+        private void dataGridCompani_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridCompani_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
