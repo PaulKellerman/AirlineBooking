@@ -26,5 +26,15 @@ namespace TheAviationCompanyProgram
         {
 
         }
+
+        private void dataGridReis_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ShowData_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

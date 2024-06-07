@@ -57,7 +57,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(760, 92);
+            this.panel1.Size = new System.Drawing.Size(722, 92);
             this.panel1.TabIndex = 12;
             // 
             // btnbackmenu2
@@ -97,7 +97,7 @@
             this.dataGridReis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridReis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2});
-            this.dataGridReis.Location = new System.Drawing.Point(311, 128);
+            this.dataGridReis.Location = new System.Drawing.Point(311, 114);
             this.dataGridReis.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridReis.Name = "dataGridReis";
             this.dataGridReis.ReadOnly = true;
@@ -105,6 +105,7 @@
             this.dataGridReis.RowTemplate.Height = 24;
             this.dataGridReis.Size = new System.Drawing.Size(190, 408);
             this.dataGridReis.TabIndex = 14;
+            this.dataGridReis.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridReis_CellContentClick);
             // 
             // Column2
             // 
@@ -122,7 +123,7 @@
             this.dataGridCompani.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCompani.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dataGridCompani.Location = new System.Drawing.Point(36, 128);
+            this.dataGridCompani.Location = new System.Drawing.Point(38, 114);
             this.dataGridCompani.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridCompani.Name = "dataGridCompani";
             this.dataGridCompani.ReadOnly = true;
@@ -145,7 +146,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(555, 309);
+            this.label1.Location = new System.Drawing.Point(64, 551);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 20);
@@ -158,7 +159,7 @@
             this.buttonSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(51)))), ((int)(((byte)(72)))));
-            this.buttonSave.Location = new System.Drawing.Point(578, 496);
+            this.buttonSave.Location = new System.Drawing.Point(403, 572);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(119, 40);
@@ -168,7 +169,7 @@
             // 
             // textBoxCompani2
             // 
-            this.textBoxCompani2.Location = new System.Drawing.Point(558, 342);
+            this.textBoxCompani2.Location = new System.Drawing.Point(207, 540);
             this.textBoxCompani2.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCompani2.Multiline = true;
             this.textBoxCompani2.Name = "textBoxCompani2";
@@ -182,7 +183,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(555, 398);
+            this.label3.Location = new System.Drawing.Point(64, 610);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 20);
@@ -191,7 +192,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(559, 434);
+            this.textBox1.Location = new System.Drawing.Point(207, 610);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -204,7 +205,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(760, 612);
+            this.ClientSize = new System.Drawing.Size(722, 656);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonSave);
@@ -215,6 +216,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ShowData";
             this.Text = "ShowData";
+            this.Load += new System.EventHandler(this.ShowData_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnbackmenu2)).EndInit();
