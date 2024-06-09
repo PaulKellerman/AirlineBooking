@@ -167,9 +167,11 @@
             this.BtnSaveShow.TabIndex = 19;
             this.BtnSaveShow.Text = "Сохранить";
             this.BtnSaveShow.UseVisualStyleBackColor = true;
+            this.BtnSaveShow.Click += new System.EventHandler(this.BtnSaveShow_Click);
             // 
             // TextBoxCompany2
             // 
+            this.TextBoxCompany2.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TextBoxCompany2.Location = new System.Drawing.Point(207, 540);
             this.TextBoxCompany2.Margin = new System.Windows.Forms.Padding(2);
             this.TextBoxCompany2.Multiline = true;
@@ -192,6 +194,7 @@
             // 
             // TextBoxFlight2
             // 
+            this.TextBoxFlight2.Font = new System.Drawing.Font("Open Sans", 14.25F);
             this.TextBoxFlight2.Location = new System.Drawing.Point(207, 610);
             this.TextBoxFlight2.Margin = new System.Windows.Forms.Padding(2);
             this.TextBoxFlight2.Multiline = true;

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TheAviationCompanyProgram
 {
@@ -19,7 +20,7 @@ namespace TheAviationCompanyProgram
 
             CompanyLoadData();
 
-            CompanyLoadData();
+            FlightLoadData();
         }
 
         public MySqlConnection connection;
@@ -42,12 +43,12 @@ namespace TheAviationCompanyProgram
 
 
 
-        public void CompanyLoadDataCompanyLoadData()
+        public void FlightLoadData()
         {
             connection = new MySqlConnection(server);
             connection.Open();
             Column2.DataPropertyName = "Number";
-            string infoDB = "SELECT № FROM flight";
+            string infoDB = "SELECT Number FROM flight";
             MySqlDataAdapter adpt = new MySqlDataAdapter(infoDB, connection);
             dataTable = new DataTable();
             adpt.Fill(dataTable);
@@ -63,6 +64,7 @@ namespace TheAviationCompanyProgram
             this.Close();
             Menu1 menu1 = new Menu1();
             menu1.Show();
+
         }
 
 
@@ -76,19 +78,23 @@ namespace TheAviationCompanyProgram
             TextBoxFlight2.Text = DataGridFlight.CurrentRow.Cells[0].Value.ToString();
         }
 
-        private void BtnSaveFlight_Click(object sender, EventArgs e)
+
+
+        private void BtnSaveShow_Click(object sender, EventArgs e)
         {
-            if (TextBoxCompany2.Text != "")
+            // Проверка на пустые текстовые поля
+            if (string.IsNullOrEmpty(TextBoxCompany2.Text) || string.IsNullOrEmpty(TextBoxFlight2.Text))
             {
-                Buffer.CompanyTextBox = TextBoxCompany2.Text;
+                MessageBox.Show("Пожалуйста, заполните все поля.", "Ошибка", MessageBoxButtons.OK);
+                return; // Прекращаем выполнение метода, если есть пустые поля
             }
-            if (TextBoxFlight2.Text != "")
-            {
-                Buffer.FlightTextBox = TextBoxFlight2.Text;
-            }
+
+            // Сохранение данных в буфер, если поля не пустые
+            Buffer.TextBoxComapnyBuf = TextBoxCompany2.Text;
+            Buffer.TextBoxFlightBuf = TextBoxFlight2.Text;
+
             MessageBox.Show("Сохранено", "", MessageBoxButtons.OK);
         }
-
 
     }
 }

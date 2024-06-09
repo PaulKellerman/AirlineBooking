@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderTickets));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -45,6 +46,8 @@
             this.LabelPrice = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.OrderTimer = new System.Windows.Forms.Timer(this.components);
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -90,6 +93,7 @@
             this.AirlineTextBox.Name = "AirlineTextBox";
             this.AirlineTextBox.Size = new System.Drawing.Size(151, 29);
             this.AirlineTextBox.TabIndex = 11;
+            this.AirlineTextBox.TextChanged += new System.EventHandler(this.DepartureDateTimePicker_ValueChanged);
             // 
             // FlightTextBox
             // 
@@ -149,6 +153,7 @@
             this.BtnBook.TabIndex = 19;
             this.BtnBook.Text = "Забронировать";
             this.BtnBook.UseVisualStyleBackColor = true;
+            this.BtnBook.Click += new System.EventHandler(this.BtnBook_Click);
             // 
             // BtnPay
             // 
@@ -159,6 +164,7 @@
             this.BtnPay.TabIndex = 20;
             this.BtnPay.Text = "Оплатить";
             this.BtnPay.UseVisualStyleBackColor = true;
+            this.BtnPay.Click += new System.EventHandler(this.BtnPay_Click_1);
             // 
             // ArrivalDateTimePickerFall
             // 
@@ -169,6 +175,7 @@
             this.ArrivalDateTimePickerFall.Name = "ArrivalDateTimePickerFall";
             this.ArrivalDateTimePickerFall.Size = new System.Drawing.Size(151, 21);
             this.ArrivalDateTimePickerFall.TabIndex = 22;
+            this.ArrivalDateTimePickerFall.ValueChanged += new System.EventHandler(this.ArrivalDateTimePickerFall_ValueChanged);
             // 
             // DepartureDateTimePicker
             // 
@@ -217,12 +224,26 @@
             this.label7.TabIndex = 25;
             this.label7.Text = "руб.";
             // 
+            // OrderTimer
+            // 
+            this.OrderTimer.Tick += new System.EventHandler(this.OrderTimer_Tick_1);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(0, 394);
+            this.progressBar.Maximum = 600;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(532, 23);
+            this.progressBar.Step = 1;
+            this.progressBar.TabIndex = 26;
+            // 
             // OrderTickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(532, 401);
+            this.ClientSize = new System.Drawing.Size(532, 417);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.LabelPrice);
@@ -240,6 +261,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrderTickets";
             this.Text = "AirlaneBooking";
+            this.Load += new System.EventHandler(this.OrderTickets_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -266,5 +288,7 @@
         private System.Windows.Forms.Label LabelPrice;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Timer OrderTimer;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

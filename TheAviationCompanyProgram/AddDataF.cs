@@ -37,10 +37,7 @@ namespace TheAviationCompanyProgram
 
 
         //функция загрузки бд в таблицу Рейс
-        private void buttonLoadReis_Click(object sender, EventArgs e)
-        {
-            GetFlightDB();
-        }
+        private void buttonLoadReis_Click(object sender, EventArgs e) => GetFlightDB();
 
         private void GetFlightDB()
         {
