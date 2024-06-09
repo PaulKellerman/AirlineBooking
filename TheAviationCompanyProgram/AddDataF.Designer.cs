@@ -32,20 +32,20 @@
             this.btnbackmenu2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.reis = new System.Windows.Forms.TabPage();
+            this.flight = new System.Windows.Forms.TabPage();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBoxTfall = new System.Windows.Forms.TextBox();
-            this.textBoxTfly = new System.Windows.Forms.TextBox();
-            this.textBoxSfall = new System.Windows.Forms.TextBox();
-            this.textBoxSFly = new System.Windows.Forms.TextBox();
-            this.textBoxNumR = new System.Windows.Forms.TextBox();
+            this.TextBoxArrivalTimeF = new System.Windows.Forms.TextBox();
+            this.TextBoxDepartureTimeF = new System.Windows.Forms.TextBox();
+            this.TextBoxArrivalСityF = new System.Windows.Forms.TextBox();
+            this.TextBoxDepartureСityF = new System.Windows.Forms.TextBox();
+            this.TextBoxNumF = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnDelDbF = new System.Windows.Forms.Button();
             this.BtnLoadDbFly = new System.Windows.Forms.Button();
-            this.buttonSaveReis = new System.Windows.Forms.Button();
+            this.BtnSaveDbF = new System.Windows.Forms.Button();
             this.dataGridReis = new System.Windows.Forms.DataGridView();
             this.IdFlight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumFlight = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +71,7 @@
             this.tabButton = new System.Windows.Forms.TabControl();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnbackmenu2)).BeginInit();
-            this.reis.SuspendLayout();
+            this.flight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReis)).BeginInit();
             this.company.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCompany)).BeginInit();
@@ -121,30 +121,30 @@
             this.label2.Text = "Добавление данных";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // reis
+            // flight
             // 
-            this.reis.Controls.Add(this.label9);
-            this.reis.Controls.Add(this.textBoxTfall);
-            this.reis.Controls.Add(this.textBoxTfly);
-            this.reis.Controls.Add(this.textBoxSfall);
-            this.reis.Controls.Add(this.textBoxSFly);
-            this.reis.Controls.Add(this.textBoxNumR);
-            this.reis.Controls.Add(this.label8);
-            this.reis.Controls.Add(this.label5);
-            this.reis.Controls.Add(this.label6);
-            this.reis.Controls.Add(this.label7);
-            this.reis.Controls.Add(this.button2);
-            this.reis.Controls.Add(this.BtnLoadDbFly);
-            this.reis.Controls.Add(this.buttonSaveReis);
-            this.reis.Controls.Add(this.dataGridReis);
-            this.reis.Location = new System.Drawing.Point(4, 25);
-            this.reis.Margin = new System.Windows.Forms.Padding(2);
-            this.reis.Name = "reis";
-            this.reis.Padding = new System.Windows.Forms.Padding(2);
-            this.reis.Size = new System.Drawing.Size(746, 463);
-            this.reis.TabIndex = 1;
-            this.reis.Text = "Рейс";
-            this.reis.UseVisualStyleBackColor = true;
+            this.flight.Controls.Add(this.label9);
+            this.flight.Controls.Add(this.TextBoxArrivalTimeF);
+            this.flight.Controls.Add(this.TextBoxDepartureTimeF);
+            this.flight.Controls.Add(this.TextBoxArrivalСityF);
+            this.flight.Controls.Add(this.TextBoxDepartureСityF);
+            this.flight.Controls.Add(this.TextBoxNumF);
+            this.flight.Controls.Add(this.label8);
+            this.flight.Controls.Add(this.label5);
+            this.flight.Controls.Add(this.label6);
+            this.flight.Controls.Add(this.label7);
+            this.flight.Controls.Add(this.BtnDelDbF);
+            this.flight.Controls.Add(this.BtnLoadDbFly);
+            this.flight.Controls.Add(this.BtnSaveDbF);
+            this.flight.Controls.Add(this.dataGridReis);
+            this.flight.Location = new System.Drawing.Point(4, 25);
+            this.flight.Margin = new System.Windows.Forms.Padding(2);
+            this.flight.Name = "flight";
+            this.flight.Padding = new System.Windows.Forms.Padding(2);
+            this.flight.Size = new System.Drawing.Size(746, 463);
+            this.flight.TabIndex = 1;
+            this.flight.Text = "Рейс";
+            this.flight.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -156,50 +156,50 @@
             this.label9.TabIndex = 20;
             this.label9.Text = "Время прилёта";
             // 
-            // textBoxTfall
+            // TextBoxArrivalTimeF
             // 
-            this.textBoxTfall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxTfall.Location = new System.Drawing.Point(549, 368);
-            this.textBoxTfall.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxTfall.Name = "textBoxTfall";
-            this.textBoxTfall.Size = new System.Drawing.Size(105, 21);
-            this.textBoxTfall.TabIndex = 19;
+            this.TextBoxArrivalTimeF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxArrivalTimeF.Location = new System.Drawing.Point(549, 368);
+            this.TextBoxArrivalTimeF.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxArrivalTimeF.Name = "TextBoxArrivalTimeF";
+            this.TextBoxArrivalTimeF.Size = new System.Drawing.Size(105, 21);
+            this.TextBoxArrivalTimeF.TabIndex = 19;
             // 
-            // textBoxTfly
+            // TextBoxDepartureTimeF
             // 
-            this.textBoxTfly.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxTfly.Location = new System.Drawing.Point(440, 368);
-            this.textBoxTfly.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxTfly.Name = "textBoxTfly";
-            this.textBoxTfly.Size = new System.Drawing.Size(105, 21);
-            this.textBoxTfly.TabIndex = 17;
+            this.TextBoxDepartureTimeF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxDepartureTimeF.Location = new System.Drawing.Point(440, 368);
+            this.TextBoxDepartureTimeF.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxDepartureTimeF.Name = "TextBoxDepartureTimeF";
+            this.TextBoxDepartureTimeF.Size = new System.Drawing.Size(105, 21);
+            this.TextBoxDepartureTimeF.TabIndex = 17;
             // 
-            // textBoxSfall
+            // TextBoxArrivalСityF
             // 
-            this.textBoxSfall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSfall.Location = new System.Drawing.Point(286, 368);
-            this.textBoxSfall.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxSfall.Name = "textBoxSfall";
-            this.textBoxSfall.Size = new System.Drawing.Size(150, 21);
-            this.textBoxSfall.TabIndex = 13;
+            this.TextBoxArrivalСityF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxArrivalСityF.Location = new System.Drawing.Point(286, 368);
+            this.TextBoxArrivalСityF.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxArrivalСityF.Name = "TextBoxArrivalСityF";
+            this.TextBoxArrivalСityF.Size = new System.Drawing.Size(150, 21);
+            this.TextBoxArrivalСityF.TabIndex = 13;
             // 
-            // textBoxSFly
+            // TextBoxDepartureСityF
             // 
-            this.textBoxSFly.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSFly.Location = new System.Drawing.Point(133, 368);
-            this.textBoxSFly.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxSFly.Name = "textBoxSFly";
-            this.textBoxSFly.Size = new System.Drawing.Size(150, 21);
-            this.textBoxSFly.TabIndex = 12;
+            this.TextBoxDepartureСityF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxDepartureСityF.Location = new System.Drawing.Point(133, 368);
+            this.TextBoxDepartureСityF.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxDepartureСityF.Name = "TextBoxDepartureСityF";
+            this.TextBoxDepartureСityF.Size = new System.Drawing.Size(150, 21);
+            this.TextBoxDepartureСityF.TabIndex = 12;
             // 
-            // textBoxNumR
+            // TextBoxNumF
             // 
-            this.textBoxNumR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxNumR.Location = new System.Drawing.Point(6, 368);
-            this.textBoxNumR.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxNumR.Name = "textBoxNumR";
-            this.textBoxNumR.Size = new System.Drawing.Size(123, 21);
-            this.textBoxNumR.TabIndex = 11;
+            this.TextBoxNumF.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextBoxNumF.Location = new System.Drawing.Point(6, 368);
+            this.TextBoxNumF.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxNumF.Name = "TextBoxNumF";
+            this.TextBoxNumF.Size = new System.Drawing.Size(123, 21);
+            this.TextBoxNumF.TabIndex = 11;
             // 
             // label8
             // 
@@ -241,15 +241,16 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Номер рейса";
             // 
-            // button2
+            // BtnDelDbF
             // 
-            this.button2.Location = new System.Drawing.Point(228, 406);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(66, 36);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Удалить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnDelDbF.Location = new System.Drawing.Point(228, 406);
+            this.BtnDelDbF.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnDelDbF.Name = "BtnDelDbF";
+            this.BtnDelDbF.Size = new System.Drawing.Size(66, 36);
+            this.BtnDelDbF.TabIndex = 6;
+            this.BtnDelDbF.Text = "Удалить";
+            this.BtnDelDbF.UseVisualStyleBackColor = true;
+            this.BtnDelDbF.Click += new System.EventHandler(this.BtnDelDbF_Click);
             // 
             // BtnLoadDbFly
             // 
@@ -262,15 +263,16 @@
             this.BtnLoadDbFly.UseVisualStyleBackColor = true;
             this.BtnLoadDbFly.Click += new System.EventHandler(this.buttonLoadReis_Click);
             // 
-            // buttonSaveReis
+            // BtnSaveDbF
             // 
-            this.buttonSaveReis.Location = new System.Drawing.Point(118, 406);
-            this.buttonSaveReis.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonSaveReis.Name = "buttonSaveReis";
-            this.buttonSaveReis.Size = new System.Drawing.Size(106, 36);
-            this.buttonSaveReis.TabIndex = 4;
-            this.buttonSaveReis.Text = "Сохранить БД";
-            this.buttonSaveReis.UseVisualStyleBackColor = true;
+            this.BtnSaveDbF.Location = new System.Drawing.Point(118, 406);
+            this.BtnSaveDbF.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnSaveDbF.Name = "BtnSaveDbF";
+            this.BtnSaveDbF.Size = new System.Drawing.Size(106, 36);
+            this.BtnSaveDbF.TabIndex = 4;
+            this.BtnSaveDbF.Text = "Сохранить БД";
+            this.BtnSaveDbF.UseVisualStyleBackColor = true;
+            this.BtnSaveDbF.Click += new System.EventHandler(this.BtnSaveDbF_Click);
             // 
             // dataGridReis
             // 
@@ -293,6 +295,7 @@
             this.dataGridReis.RowTemplate.Height = 24;
             this.dataGridReis.Size = new System.Drawing.Size(742, 345);
             this.dataGridReis.TabIndex = 0;
+            this.dataGridReis.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridReis_CellContentClick);
             // 
             // IdFlight
             // 
@@ -440,6 +443,7 @@
             this.BtnLoadDbCompany.TabIndex = 3;
             this.BtnLoadDbCompany.Text = "Загрузить БД";
             this.BtnLoadDbCompany.UseVisualStyleBackColor = true;
+            this.BtnLoadDbCompany.Click += new System.EventHandler(this.BtnLoadDbCompany_Click_1);
             // 
             // BtnSaveCompany
             // 
@@ -471,7 +475,6 @@
             this.dataGridCompany.RowTemplate.Height = 24;
             this.dataGridCompany.Size = new System.Drawing.Size(742, 346);
             this.dataGridCompany.TabIndex = 1;
-
             // 
             // IDcol
             // 
@@ -508,7 +511,7 @@
             // tabButton
             // 
             this.tabButton.Controls.Add(this.company);
-            this.tabButton.Controls.Add(this.reis);
+            this.tabButton.Controls.Add(this.flight);
             this.tabButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tabButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabButton.ItemSize = new System.Drawing.Size(71, 21);
@@ -532,8 +535,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnbackmenu2)).EndInit();
-            this.reis.ResumeLayout(false);
-            this.reis.PerformLayout();
+            this.flight.ResumeLayout(false);
+            this.flight.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReis)).EndInit();
             this.company.ResumeLayout(false);
             this.company.PerformLayout();
@@ -549,20 +552,20 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox btnbackmenu2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TabPage reis;
+        private System.Windows.Forms.TabPage flight;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxTfall;
-        private System.Windows.Forms.TextBox textBoxTfly;
-        private System.Windows.Forms.TextBox textBoxSfall;
-        private System.Windows.Forms.TextBox textBoxSFly;
-        private System.Windows.Forms.TextBox textBoxNumR;
+        private System.Windows.Forms.TextBox TextBoxArrivalTimeF;
+        private System.Windows.Forms.TextBox TextBoxDepartureTimeF;
+        private System.Windows.Forms.TextBox TextBoxArrivalСityF;
+        private System.Windows.Forms.TextBox TextBoxDepartureСityF;
+        private System.Windows.Forms.TextBox TextBoxNumF;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnDelDbF;
         private System.Windows.Forms.Button BtnLoadDbFly;
-        private System.Windows.Forms.Button buttonSaveReis;
+        private System.Windows.Forms.Button BtnSaveDbF;
         private System.Windows.Forms.DataGridView dataGridReis;
         private System.Windows.Forms.TabPage company;
         private System.Windows.Forms.Label label4;

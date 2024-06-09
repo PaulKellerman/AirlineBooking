@@ -1,6 +1,6 @@
 ﻿namespace TheAviationCompanyProgram
 {
-    partial class ShowData
+    partial class ShoowData
     {
         /// <summary>
         /// Required designer variable.
@@ -32,20 +32,20 @@
             this.btnbackmenu2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridReis = new System.Windows.Forms.DataGridView();
+            this.DataGridFlight = new System.Windows.Forms.DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridCompani = new System.Windows.Forms.DataGridView();
+            this.DataGridCompany = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.textBoxCompani2 = new System.Windows.Forms.TextBox();
+            this.BtnSaveShow = new System.Windows.Forms.Button();
+            this.TextBoxCompany2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextBoxFlight2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnbackmenu2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridReis)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridCompani)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridFlight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridCompany)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -69,6 +69,7 @@
             this.btnbackmenu2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnbackmenu2.TabIndex = 10;
             this.btnbackmenu2.TabStop = false;
+            this.btnbackmenu2.Click += new System.EventHandler(this.btnbackmenu2_Click);
             // 
             // panel2
             // 
@@ -90,22 +91,22 @@
             this.label2.Text = "Просмотр данных";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridReis
+            // DataGridFlight
             // 
-            this.dataGridReis.AllowUserToAddRows = false;
-            this.dataGridReis.AllowUserToDeleteRows = false;
-            this.dataGridReis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridReis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridFlight.AllowUserToAddRows = false;
+            this.DataGridFlight.AllowUserToDeleteRows = false;
+            this.DataGridFlight.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridFlight.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2});
-            this.dataGridReis.Location = new System.Drawing.Point(311, 114);
-            this.dataGridReis.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridReis.Name = "dataGridReis";
-            this.dataGridReis.ReadOnly = true;
-            this.dataGridReis.RowHeadersWidth = 51;
-            this.dataGridReis.RowTemplate.Height = 24;
-            this.dataGridReis.Size = new System.Drawing.Size(190, 408);
-            this.dataGridReis.TabIndex = 14;
-            this.dataGridReis.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridReis_CellContentClick);
+            this.DataGridFlight.Location = new System.Drawing.Point(311, 114);
+            this.DataGridFlight.Margin = new System.Windows.Forms.Padding(2);
+            this.DataGridFlight.Name = "DataGridFlight";
+            this.DataGridFlight.ReadOnly = true;
+            this.DataGridFlight.RowHeadersWidth = 51;
+            this.DataGridFlight.RowTemplate.Height = 24;
+            this.DataGridFlight.Size = new System.Drawing.Size(190, 408);
+            this.DataGridFlight.TabIndex = 14;
+            this.DataGridFlight.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridFlight_CellContentClick);
             // 
             // Column2
             // 
@@ -116,21 +117,22 @@
             this.Column2.ReadOnly = true;
             this.Column2.Width = 137;
             // 
-            // dataGridCompani
+            // DataGridCompany
             // 
-            this.dataGridCompani.AllowUserToAddRows = false;
-            this.dataGridCompani.AllowUserToDeleteRows = false;
-            this.dataGridCompani.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCompani.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridCompany.AllowUserToAddRows = false;
+            this.DataGridCompany.AllowUserToDeleteRows = false;
+            this.DataGridCompany.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridCompany.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dataGridCompani.Location = new System.Drawing.Point(38, 114);
-            this.dataGridCompani.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridCompani.Name = "dataGridCompani";
-            this.dataGridCompani.ReadOnly = true;
-            this.dataGridCompani.RowHeadersWidth = 51;
-            this.dataGridCompani.RowTemplate.Height = 24;
-            this.dataGridCompani.Size = new System.Drawing.Size(190, 408);
-            this.dataGridCompani.TabIndex = 13;
+            this.DataGridCompany.Location = new System.Drawing.Point(38, 114);
+            this.DataGridCompany.Margin = new System.Windows.Forms.Padding(2);
+            this.DataGridCompany.Name = "DataGridCompany";
+            this.DataGridCompany.ReadOnly = true;
+            this.DataGridCompany.RowHeadersWidth = 51;
+            this.DataGridCompany.RowTemplate.Height = 24;
+            this.DataGridCompany.Size = new System.Drawing.Size(190, 408);
+            this.DataGridCompany.TabIndex = 13;
+            this.DataGridCompany.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridCompany_CellContentClick);
             // 
             // Column1
             // 
@@ -152,31 +154,29 @@
             this.label1.Size = new System.Drawing.Size(120, 20);
             this.label1.TabIndex = 17;
             this.label1.Text = "Авиакомпании";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // buttonSave
+            // BtnSaveShow
             // 
-            this.buttonSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(51)))), ((int)(((byte)(72)))));
-            this.buttonSave.Location = new System.Drawing.Point(403, 572);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(119, 40);
-            this.buttonSave.TabIndex = 19;
-            this.buttonSave.Text = "Сохранить";
-            this.buttonSave.UseVisualStyleBackColor = true;
+            this.BtnSaveShow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSaveShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnSaveShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(51)))), ((int)(((byte)(72)))));
+            this.BtnSaveShow.Location = new System.Drawing.Point(403, 572);
+            this.BtnSaveShow.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnSaveShow.Name = "BtnSaveShow";
+            this.BtnSaveShow.Size = new System.Drawing.Size(119, 40);
+            this.BtnSaveShow.TabIndex = 19;
+            this.BtnSaveShow.Text = "Сохранить";
+            this.BtnSaveShow.UseVisualStyleBackColor = true;
             // 
-            // textBoxCompani2
+            // TextBoxCompany2
             // 
-            this.textBoxCompani2.Location = new System.Drawing.Point(207, 540);
-            this.textBoxCompani2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxCompani2.Multiline = true;
-            this.textBoxCompani2.Name = "textBoxCompani2";
-            this.textBoxCompani2.ReadOnly = true;
-            this.textBoxCompani2.Size = new System.Drawing.Size(159, 35);
-            this.textBoxCompani2.TabIndex = 15;
-            this.textBoxCompani2.TextChanged += new System.EventHandler(this.textBoxCompani2_TextChanged);
+            this.TextBoxCompany2.Location = new System.Drawing.Point(207, 540);
+            this.TextBoxCompany2.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxCompany2.Multiline = true;
+            this.TextBoxCompany2.Name = "TextBoxCompany2";
+            this.TextBoxCompany2.ReadOnly = true;
+            this.TextBoxCompany2.Size = new System.Drawing.Size(159, 35);
+            this.TextBoxCompany2.TabIndex = 15;
             // 
             // label3
             // 
@@ -190,38 +190,37 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "№ Рейса";
             // 
-            // textBox1
+            // TextBoxFlight2
             // 
-            this.textBox1.Location = new System.Drawing.Point(207, 610);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(159, 35);
-            this.textBox1.TabIndex = 20;
+            this.TextBoxFlight2.Location = new System.Drawing.Point(207, 610);
+            this.TextBoxFlight2.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxFlight2.Multiline = true;
+            this.TextBoxFlight2.Name = "TextBoxFlight2";
+            this.TextBoxFlight2.ReadOnly = true;
+            this.TextBoxFlight2.Size = new System.Drawing.Size(159, 35);
+            this.TextBoxFlight2.TabIndex = 20;
             // 
-            // ShowData
+            // ShoowData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(722, 656);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TextBoxFlight2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.textBoxCompani2);
+            this.Controls.Add(this.BtnSaveShow);
+            this.Controls.Add(this.TextBoxCompany2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridReis);
-            this.Controls.Add(this.dataGridCompani);
+            this.Controls.Add(this.DataGridFlight);
+            this.Controls.Add(this.DataGridCompany);
             this.Controls.Add(this.panel1);
-            this.Name = "ShowData";
+            this.Name = "ShoowData";
             this.Text = "ShowData";
-            this.Load += new System.EventHandler(this.ShowData_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnbackmenu2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridReis)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridCompani)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridFlight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridCompany)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,15 +232,15 @@
         private System.Windows.Forms.PictureBox btnbackmenu2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridReis;
+        private System.Windows.Forms.DataGridView DataGridFlight;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridView dataGridCompani;
+        private System.Windows.Forms.DataGridView DataGridCompany;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.TextBox textBoxCompani2;
+        private System.Windows.Forms.Button BtnSaveShow;
+        private System.Windows.Forms.TextBox TextBoxCompany2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextBoxFlight2;
     }
 }

@@ -41,8 +41,9 @@ namespace TheAviationCompanyProgram
 
         private void ShowDataTool_Click(object sender, EventArgs e)
         {
-            AddDataF addDataForm = new AddDataF();
-            addDataForm.Show();
+            this.Hide();
+            ShoowData ShoowData = new ShoowData();
+            ShoowData.Show();
             this.Close();
         }
 
