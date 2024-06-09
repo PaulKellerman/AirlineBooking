@@ -146,24 +146,26 @@
             // 
             // BtnBook
             // 
+            this.BtnBook.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BtnBook.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnBook.Location = new System.Drawing.Point(96, 276);
             this.BtnBook.Name = "BtnBook";
             this.BtnBook.Size = new System.Drawing.Size(146, 63);
             this.BtnBook.TabIndex = 19;
             this.BtnBook.Text = "Забронировать";
-            this.BtnBook.UseVisualStyleBackColor = true;
+            this.BtnBook.UseVisualStyleBackColor = false;
             this.BtnBook.Click += new System.EventHandler(this.BtnBook_Click);
             // 
             // BtnPay
             // 
+            this.BtnPay.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BtnPay.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnPay.Location = new System.Drawing.Point(281, 275);
             this.BtnPay.Name = "BtnPay";
             this.BtnPay.Size = new System.Drawing.Size(151, 63);
             this.BtnPay.TabIndex = 20;
             this.BtnPay.Text = "Оплатить";
-            this.BtnPay.UseVisualStyleBackColor = true;
+            this.BtnPay.UseVisualStyleBackColor = false;
             this.BtnPay.Click += new System.EventHandler(this.BtnPay_Click_1);
             // 
             // ArrivalDateTimePickerFall

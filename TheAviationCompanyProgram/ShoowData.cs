@@ -27,7 +27,7 @@ namespace TheAviationCompanyProgram
         public DataTable dataTable;
         public string server = "server=localhost; port=3306; username=root; password=root; database=airport;";
 
-
+        //Загразука данных из табл компания
         public void CompanyLoadData()
         {
             connection = new MySqlConnection(server);
@@ -42,7 +42,7 @@ namespace TheAviationCompanyProgram
         }
 
 
-
+        //Загразука данных из таб рейсы
         public void FlightLoadData()
         {
             connection = new MySqlConnection(server);
@@ -82,19 +82,23 @@ namespace TheAviationCompanyProgram
 
         private void BtnSaveShow_Click(object sender, EventArgs e)
         {
-            // Проверка на пустые текстовые поля
+ 
             if (string.IsNullOrEmpty(TextBoxCompany2.Text) || string.IsNullOrEmpty(TextBoxFlight2.Text))
             {
                 MessageBox.Show("Пожалуйста, заполните все поля.", "Ошибка", MessageBoxButtons.OK);
-                return; // Прекращаем выполнение метода, если есть пустые поля
+                return; 
             }
 
-            // Сохранение данных в буфер, если поля не пустые
+
             Buffer.TextBoxComapnyBuf = TextBoxCompany2.Text;
             Buffer.TextBoxFlightBuf = TextBoxFlight2.Text;
 
             MessageBox.Show("Сохранено", "", MessageBoxButtons.OK);
         }
 
+        private void ShoowData_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

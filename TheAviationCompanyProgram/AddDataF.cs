@@ -58,6 +58,8 @@ namespace TheAviationCompanyProgram
             connection.Close();
         }
 
+
+
         ///кнопка сохранения таблицы Компания
         private void BtnSaveCompany_Click(object sender, EventArgs e)
         {
@@ -161,10 +163,10 @@ namespace TheAviationCompanyProgram
         //кнокпка удаления в таблице Рейсы
         private void BtnDelDbF_Click(object sender, EventArgs e)
         {
-            IdDelF();
+            FlightDelC();
         }
 
-        private void IdDelF()
+        private void FlightDelC()
         {
             connection.Open();
             MySqlCommand command = new MySqlCommand("DELETE FROM `flight` WHERE `flight`.`id` = @id", connection);
@@ -198,7 +200,6 @@ namespace TheAviationCompanyProgram
               
                 connection.Open();
 
-                // Запрос на вставку данных в таблицу "flight"
                 MySqlCommand command = new MySqlCommand(
                     "INSERT INTO flight (Number , departureСity, arrivalСity, departureTime, arrivalTime) VALUES (@Number, @departureСity, @arrivalСity, @departureTime, @arrivalTime);",
                     connection);
@@ -210,13 +211,12 @@ namespace TheAviationCompanyProgram
                 command.Parameters.Add("@departureTime", MySqlDbType.VarChar).Value = TextBoxDepartureTimeF.Text;
                 command.Parameters.Add("@arrivalTime", MySqlDbType.VarChar).Value = TextBoxArrivalTimeF.Text;
 
-                // Выполняем запрос
                 command.ExecuteNonQuery();
 
                 connection.Close();
 
-                // Обновляем данные в вашем интерфейсе (GetCompanyDB())
-                GetCompanyDB2(); // Вызываем функцию для обновления данных в таблице
+
+                GetFlightDB(); 
 
                 MessageBox.Show("Данные успешно сохранены!");
 
@@ -228,25 +228,7 @@ namespace TheAviationCompanyProgram
             }
         }
 
-        public void GetCompanyDB2()
-        {
-            connection.Open();
-            dataGridCompany.AutoGenerateColumns = false;
-            IdFlight.DataPropertyName = "id";
-            NumFlight.DataPropertyName = "Number";
-            DepartureСity.DataPropertyName = "departureСity";
-            ArrivalСity.DataPropertyName = "arrivalСity";
-            DepartureTime.DataPropertyName = "departureTime";
-            ArrivalTime.DataPropertyName = "arrivalTime";
-            string infoDB = "SELECT id, Number, departureСity, arrivalСity, departureTime, arrivalTime   FROM flight";
-            MySqlDataAdapter adpt = new MySqlDataAdapter(infoDB, connection);
-            dataTable = new DataTable();
-            adpt.Fill(dataTable);
-            dataGridCompany.DataSource = dataTable;
-            connection.Close();
-        }
-
-        private void dataGridReis_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridCompany_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

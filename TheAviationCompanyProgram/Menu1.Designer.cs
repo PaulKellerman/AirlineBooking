@@ -40,20 +40,22 @@
             // 
             // BtnMenu
             // 
+            this.BtnMenu.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BtnMenu.Font = new System.Drawing.Font("Open Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BtnMenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BtnMenu.Location = new System.Drawing.Point(160, 303);
             this.BtnMenu.Name = "BtnMenu";
             this.BtnMenu.Size = new System.Drawing.Size(170, 61);
             this.BtnMenu.TabIndex = 1;
             this.BtnMenu.Text = "Меню";
-            this.BtnMenu.UseVisualStyleBackColor = true;
+            this.BtnMenu.UseVisualStyleBackColor = false;
             this.BtnMenu.Click += new System.EventHandler(this.menubutton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(226, 125);
+            this.label1.Location = new System.Drawing.Point(227, 120);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(293, 66);
             this.label1.TabIndex = 3;

@@ -22,7 +22,7 @@ namespace TheAviationCompanyProgram
         }
 
 
-
+        
         public void GetInfo()
         {
             AirlineTextBox.Text = Buffer.TextBoxComapnyBuf;
@@ -55,7 +55,7 @@ namespace TheAviationCompanyProgram
             Menu1.Show();
             MessageBox.Show("Оплачено :)", "", MessageBoxButtons.OK);
         }
-
+        
         private void BtnBook_Click(object sender, EventArgs e)
         {
             progress = 0;
@@ -70,49 +70,27 @@ namespace TheAviationCompanyProgram
         int mseconds;
 
 
-      
 
+        //функция проверяющая скидку
         public void CheckPrice()
         {
-            int price = 1000;
+            int price = 5000;
 
-            if (ArrivalDateTimePickerFall.Value.DayOfWeek == DayOfWeek.Saturday)
+            if (ArrivalDateTimePickerFall.Value.DayOfWeek == DayOfWeek.Saturday ||
+                ArrivalDateTimePickerFall.Value.DayOfWeek == DayOfWeek.Sunday ||
+                DepartureDateTimePicker.Value.DayOfWeek == DayOfWeek.Saturday ||
+                DepartureDateTimePicker.Value.DayOfWeek == DayOfWeek.Sunday)
             {
-                if (price < 1100)
-                {
-                    price += 100;
-                }
 
+                price += (int)(price * 0.1);
             }
-            if (ArrivalDateTimePickerFall.Value.DayOfWeek == DayOfWeek.Sunday)
-            {
-                if (price < 1100)
-                {
-                    price += 100;
-                }
 
-            }
-            if (DepartureDateTimePicker.Value.DayOfWeek == DayOfWeek.Saturday)
-            {
-                if (price < 1100)
-                {
-                    price += 100;
-                }
-
-            }
-            if (DepartureDateTimePicker.Value.DayOfWeek == DayOfWeek.Sunday)
-            {
-                if (price < 1100)
-                {
-                    price += 100;
-                }
-            }
             LabelPrice.Text = price.ToString();
         }
 
-        
 
 
+        //проверка на выбор авиокампании и рейса
         public void Check()
         {
             if (Buffer.TextBoxComapnyBuf == "Выберите авиакомпанию")
@@ -160,7 +138,7 @@ namespace TheAviationCompanyProgram
             }
             CheckPrice();
         }
-
+        //прогресс бар
         private void OrderTimer_Tick_1(object sender, EventArgs e)
         {
 
@@ -194,5 +172,6 @@ namespace TheAviationCompanyProgram
             Menu1.Show();
             MessageBox.Show("Успешно ", "", MessageBoxButtons.OK);
         }
+
     }
 }

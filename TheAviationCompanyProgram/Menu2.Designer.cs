@@ -47,13 +47,14 @@
             // 
             // BtnOrderTickets
             // 
+            this.BtnOrderTickets.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BtnOrderTickets.Font = new System.Drawing.Font("Open Sans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnOrderTickets.Location = new System.Drawing.Point(225, 312);
             this.BtnOrderTickets.Name = "BtnOrderTickets";
             this.BtnOrderTickets.Size = new System.Drawing.Size(170, 61);
             this.BtnOrderTickets.TabIndex = 3;
             this.BtnOrderTickets.Text = "Заказ билетов";
-            this.BtnOrderTickets.UseVisualStyleBackColor = true;
+            this.BtnOrderTickets.UseVisualStyleBackColor = false;
             this.BtnOrderTickets.Click += new System.EventHandler(this.button1_Click);
             // 
             // ChoiceToolStrip

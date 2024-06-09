@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShoowData));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnbackmenu2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -157,6 +158,7 @@
             // 
             // BtnSaveShow
             // 
+            this.BtnSaveShow.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BtnSaveShow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSaveShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnSaveShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(51)))), ((int)(((byte)(72)))));
@@ -166,7 +168,7 @@
             this.BtnSaveShow.Size = new System.Drawing.Size(119, 40);
             this.BtnSaveShow.TabIndex = 19;
             this.BtnSaveShow.Text = "Сохранить";
-            this.BtnSaveShow.UseVisualStyleBackColor = true;
+            this.BtnSaveShow.UseVisualStyleBackColor = false;
             this.BtnSaveShow.Click += new System.EventHandler(this.BtnSaveShow_Click);
             // 
             // TextBoxCompany2
@@ -217,8 +219,10 @@
             this.Controls.Add(this.DataGridFlight);
             this.Controls.Add(this.DataGridCompany);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShoowData";
-            this.Text = "ShowData";
+            this.Text = "Airlinebooking";
+            this.Load += new System.EventHandler(this.ShoowData_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnbackmenu2)).EndInit();

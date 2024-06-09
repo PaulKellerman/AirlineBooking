@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDataF));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnbackmenu2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -243,35 +244,38 @@
             // 
             // BtnDelDbF
             // 
+            this.BtnDelDbF.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BtnDelDbF.Location = new System.Drawing.Point(228, 406);
             this.BtnDelDbF.Margin = new System.Windows.Forms.Padding(2);
             this.BtnDelDbF.Name = "BtnDelDbF";
             this.BtnDelDbF.Size = new System.Drawing.Size(66, 36);
             this.BtnDelDbF.TabIndex = 6;
             this.BtnDelDbF.Text = "Удалить";
-            this.BtnDelDbF.UseVisualStyleBackColor = true;
+            this.BtnDelDbF.UseVisualStyleBackColor = false;
             this.BtnDelDbF.Click += new System.EventHandler(this.BtnDelDbF_Click);
             // 
             // BtnLoadDbFly
             // 
+            this.BtnLoadDbFly.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BtnLoadDbFly.Location = new System.Drawing.Point(19, 406);
             this.BtnLoadDbFly.Margin = new System.Windows.Forms.Padding(2);
             this.BtnLoadDbFly.Name = "BtnLoadDbFly";
             this.BtnLoadDbFly.Size = new System.Drawing.Size(94, 36);
             this.BtnLoadDbFly.TabIndex = 5;
             this.BtnLoadDbFly.Text = "Загрузить БД";
-            this.BtnLoadDbFly.UseVisualStyleBackColor = true;
+            this.BtnLoadDbFly.UseVisualStyleBackColor = false;
             this.BtnLoadDbFly.Click += new System.EventHandler(this.buttonLoadReis_Click);
             // 
             // BtnSaveDbF
             // 
+            this.BtnSaveDbF.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BtnSaveDbF.Location = new System.Drawing.Point(118, 406);
             this.BtnSaveDbF.Margin = new System.Windows.Forms.Padding(2);
             this.BtnSaveDbF.Name = "BtnSaveDbF";
             this.BtnSaveDbF.Size = new System.Drawing.Size(106, 36);
             this.BtnSaveDbF.TabIndex = 4;
             this.BtnSaveDbF.Text = "Сохранить БД";
-            this.BtnSaveDbF.UseVisualStyleBackColor = true;
+            this.BtnSaveDbF.UseVisualStyleBackColor = false;
             this.BtnSaveDbF.Click += new System.EventHandler(this.BtnSaveDbF_Click);
             // 
             // dataGridReis
@@ -295,7 +299,6 @@
             this.dataGridReis.RowTemplate.Height = 24;
             this.dataGridReis.Size = new System.Drawing.Size(742, 345);
             this.dataGridReis.TabIndex = 0;
-            this.dataGridReis.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridReis_CellContentClick);
             // 
             // IdFlight
             // 
@@ -425,35 +428,38 @@
             // 
             // BtnCompanyDel
             // 
+            this.BtnCompanyDel.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BtnCompanyDel.Location = new System.Drawing.Point(228, 406);
             this.BtnCompanyDel.Margin = new System.Windows.Forms.Padding(2);
             this.BtnCompanyDel.Name = "BtnCompanyDel";
             this.BtnCompanyDel.Size = new System.Drawing.Size(66, 36);
             this.BtnCompanyDel.TabIndex = 4;
             this.BtnCompanyDel.Text = "Удалить";
-            this.BtnCompanyDel.UseVisualStyleBackColor = true;
+            this.BtnCompanyDel.UseVisualStyleBackColor = false;
             this.BtnCompanyDel.Click += new System.EventHandler(this.BtnCompanyDel_Click);
             // 
             // BtnLoadDbCompany
             // 
+            this.BtnLoadDbCompany.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BtnLoadDbCompany.Location = new System.Drawing.Point(19, 406);
             this.BtnLoadDbCompany.Margin = new System.Windows.Forms.Padding(2);
             this.BtnLoadDbCompany.Name = "BtnLoadDbCompany";
             this.BtnLoadDbCompany.Size = new System.Drawing.Size(94, 36);
             this.BtnLoadDbCompany.TabIndex = 3;
             this.BtnLoadDbCompany.Text = "Загрузить БД";
-            this.BtnLoadDbCompany.UseVisualStyleBackColor = true;
+            this.BtnLoadDbCompany.UseVisualStyleBackColor = false;
             this.BtnLoadDbCompany.Click += new System.EventHandler(this.BtnLoadDbCompany_Click_1);
             // 
             // BtnSaveCompany
             // 
+            this.BtnSaveCompany.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.BtnSaveCompany.Location = new System.Drawing.Point(118, 406);
             this.BtnSaveCompany.Margin = new System.Windows.Forms.Padding(2);
             this.BtnSaveCompany.Name = "BtnSaveCompany";
             this.BtnSaveCompany.Size = new System.Drawing.Size(106, 36);
             this.BtnSaveCompany.TabIndex = 2;
             this.BtnSaveCompany.Text = "Сохранить БД";
-            this.BtnSaveCompany.UseVisualStyleBackColor = true;
+            this.BtnSaveCompany.UseVisualStyleBackColor = false;
             this.BtnSaveCompany.Click += new System.EventHandler(this.BtnSaveCompany_Click);
             // 
             // dataGridCompany
@@ -475,6 +481,7 @@
             this.dataGridCompany.RowTemplate.Height = 24;
             this.dataGridCompany.Size = new System.Drawing.Size(742, 346);
             this.dataGridCompany.TabIndex = 1;
+            this.dataGridCompany.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCompany_CellContentClick);
             // 
             // IDcol
             // 
@@ -530,8 +537,9 @@
             this.ClientSize = new System.Drawing.Size(754, 584);
             this.Controls.Add(this.tabButton);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddDataF";
-            this.Text = "AddDataF";
+            this.Text = "AirlineBooking";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnbackmenu2)).EndInit();
