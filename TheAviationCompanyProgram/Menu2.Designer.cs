@@ -163,6 +163,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu2";
             this.Text = "AirlaneBooking";
+
             this.ChoiceToolStrip.ResumeLayout(false);
             this.ChoiceToolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -65,7 +65,7 @@
             this.BtnLoadDbCompany = new System.Windows.Forms.Button();
             this.BtnSaveCompany = new System.Windows.Forms.Button();
             this.dataGridCompany = new System.Windows.Forms.DataGridView();
-            this.IDcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdComapny = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.YearCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RatingCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -276,7 +276,7 @@
             this.BtnSaveDbF.TabIndex = 4;
             this.BtnSaveDbF.Text = "Сохранить БД";
             this.BtnSaveDbF.UseVisualStyleBackColor = false;
-            this.BtnSaveDbF.Click += new System.EventHandler(this.BtnSaveDbF_Click);
+            this.BtnSaveDbF.Click += new System.EventHandler(this.BtnSaveDbF_Click_1);
             // 
             // dataGridReis
             // 
@@ -460,7 +460,7 @@
             this.BtnSaveCompany.TabIndex = 2;
             this.BtnSaveCompany.Text = "Сохранить БД";
             this.BtnSaveCompany.UseVisualStyleBackColor = false;
-            this.BtnSaveCompany.Click += new System.EventHandler(this.BtnSaveCompany_Click);
+            this.BtnSaveCompany.Click += new System.EventHandler(this.BtnSaveCompany_Click_1);
             // 
             // dataGridCompany
             // 
@@ -468,7 +468,7 @@
             this.dataGridCompany.AllowUserToDeleteRows = false;
             this.dataGridCompany.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCompany.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDcol,
+            this.IdComapny,
             this.NameCompany,
             this.YearCompany,
             this.RatingCompany});
@@ -481,15 +481,14 @@
             this.dataGridCompany.RowTemplate.Height = 24;
             this.dataGridCompany.Size = new System.Drawing.Size(742, 346);
             this.dataGridCompany.TabIndex = 1;
-            this.dataGridCompany.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCompany_CellContentClick);
             // 
-            // IDcol
+            // IdComapny
             // 
-            this.IDcol.HeaderText = "id";
-            this.IDcol.MinimumWidth = 6;
-            this.IDcol.Name = "IDcol";
-            this.IDcol.ReadOnly = true;
-            this.IDcol.Width = 125;
+            this.IdComapny.HeaderText = "id";
+            this.IdComapny.MinimumWidth = 6;
+            this.IdComapny.Name = "IdComapny";
+            this.IdComapny.ReadOnly = true;
+            this.IdComapny.Width = 125;
             // 
             // NameCompany
             // 
@@ -587,15 +586,15 @@
         private System.Windows.Forms.Button BtnSaveCompany;
         private System.Windows.Forms.TabControl tabButton;
         private System.Windows.Forms.DataGridView dataGridCompany;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDcol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameCompany;
-        private System.Windows.Forms.DataGridViewTextBoxColumn YearCompany;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RatingCompany;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdFlight;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumFlight;
         private System.Windows.Forms.DataGridViewTextBoxColumn DepartureСity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ArrivalСity;
         private System.Windows.Forms.DataGridViewTextBoxColumn DepartureTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ArrivalTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdComapny;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameCompany;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YearCompany;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RatingCompany;
     }
 }

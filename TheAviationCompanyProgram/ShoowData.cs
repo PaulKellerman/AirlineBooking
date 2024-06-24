@@ -96,9 +96,7 @@ namespace TheAviationCompanyProgram
             MessageBox.Show("Сохранено", "", MessageBoxButtons.OK);
         }
 
-        private void ShoowData_Load(object sender, EventArgs e)
-        {
 
-        }
+
     }
 }

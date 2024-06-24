@@ -60,8 +60,123 @@ namespace TheAviationCompanyProgram
 
 
 
+
+       
+
+        private void BtnCompanyDel_Click(object sender, EventArgs e)
+        {
+            CompanyDelC();
+        }
+
+
+
+        private object GetIdC()
+        {
+            return dataGridCompany.SelectedRows[0].Cells[0].Value;
+        }
+
+
+
+
+
+
+        //функция загрузки бд в таблицу Компания
+        private void BtnLoadDbCompany_Click_1(object sender, EventArgs e)
+        {
+            GetCompanyDB();
+        }
+
+        public void GetCompanyDB()
+        {
+            connection.Open();
+            dataGridCompany.AutoGenerateColumns = false;
+            IdComapny.DataPropertyName = "id";
+            NameCompany.DataPropertyName = "Name";
+            YearCompany.DataPropertyName = "Year";
+            RatingCompany.DataPropertyName = "Rating";
+            string infoDB = "SELECT id, Name, Year, Rating FROM company";
+            MySqlDataAdapter adpt = new MySqlDataAdapter(infoDB, connection);
+            dataTable = new DataTable();
+            adpt.Fill(dataTable);
+            dataGridCompany.DataSource = dataTable;
+            connection.Close();
+        }
+
+
+
+
+
+        //кнокпка удаления в таблице Рейсы
+        private void BtnDelDbF_Click(object sender, EventArgs e)
+        {
+            FlightDelC();
+        }
+
+        private void FlightDelC()
+        {
+            connection.Open();
+            MySqlCommand command = new MySqlCommand("DELETE FROM `flight` WHERE `flight`.`id` = @id", connection);
+            command.Parameters.Add("@id", MySqlDbType.Int16).Value = GetIdR();
+            command.ExecuteNonQuery();
+            connection.Close();
+
+            dataGridReis.Rows.RemoveAt(dataGridReis.SelectedRows[0].Index);
+        }
+
+        private object GetIdR()
+        {
+            return dataGridReis.SelectedRows[0].Cells[0].Value;
+        }
+
+        private void BtnSaveDbF_Click_1(object sender, EventArgs e)
+        {
+            // Проверка на пустые поля ввода
+            if (string.IsNullOrEmpty(TextBoxNumF.Text) ||
+                string.IsNullOrEmpty(TextBoxDepartureСityF.Text) ||
+                string.IsNullOrEmpty(TextBoxArrivalСityF.Text) ||
+                string.IsNullOrEmpty(TextBoxDepartureTimeF.Text) ||
+                string.IsNullOrEmpty(TextBoxArrivalTimeF.Text))
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля.");
+                return;
+            }
+
+            try
+            {
+
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand(
+                    "INSERT INTO flight (Number , departureСity, arrivalСity, departureTime, arrivalTime) VALUES (@Number, @departureСity, @arrivalСity, @departureTime, @arrivalTime);",
+                    connection);
+
+                // Заполняем параметры значениями из текстовых полей
+                command.Parameters.Add("@Number", MySqlDbType.VarChar).Value = TextBoxNumF.Text;
+                command.Parameters.Add("@departureСity", MySqlDbType.VarChar).Value = TextBoxDepartureСityF.Text;
+                command.Parameters.Add("@arrivalСity", MySqlDbType.VarChar).Value = TextBoxArrivalСityF.Text;
+                command.Parameters.Add("@departureTime", MySqlDbType.VarChar).Value = TextBoxDepartureTimeF.Text;
+                command.Parameters.Add("@arrivalTime", MySqlDbType.VarChar).Value = TextBoxArrivalTimeF.Text;
+
+                command.ExecuteNonQuery();
+
+                connection.Close();
+
+
+                GetFlightDB();
+
+                MessageBox.Show("Данные успешно сохранены!");
+
+                ;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка при сохранении данных: " + ex.Message);
+            }
+        }
+        
+        
         ///кнопка сохранения таблицы Компания
-        private void BtnSaveCompany_Click(object sender, EventArgs e)
+        private void BtnSaveCompany_Click_1(object sender, EventArgs e)
         {
             //проверка на пустые поля ввода
             if (string.IsNullOrEmpty(textBox1.Text) ||
@@ -107,19 +222,6 @@ namespace TheAviationCompanyProgram
             }
         }
 
-        private void BtnCompanyDel_Click(object sender, EventArgs e)
-        {
-            CompanyDelC();
-        }
-
-
-
-        private object GetIdC()
-        {
-            return dataGridCompany.SelectedRows[0].Cells[0].Value;
-        }
-
-
         ///кнопка удаления строк таблицы Комапания
         private void CompanyDelC()
         {
@@ -132,105 +234,5 @@ namespace TheAviationCompanyProgram
             dataGridCompany.Rows.RemoveAt(dataGridCompany.SelectedRows[0].Index);
         }
 
-
-
-        //функция загрузки бд в таблицу Компания
-        private void BtnLoadDbCompany_Click_1(object sender, EventArgs e)
-        {
-            GetCompanyDB();
-        }
-
-        public void GetCompanyDB()
-        {
-            connection.Open();
-            dataGridCompany.AutoGenerateColumns = false;
-            IDcol.DataPropertyName = "id";
-            NameCompany.DataPropertyName = "Name";
-            YearCompany.DataPropertyName = "Year";
-            RatingCompany.DataPropertyName = "Rating";
-            string infoDB = "SELECT id, Name, Year, Rating FROM company";
-            MySqlDataAdapter adpt = new MySqlDataAdapter(infoDB, connection);
-            dataTable = new DataTable();
-            adpt.Fill(dataTable);
-            dataGridCompany.DataSource = dataTable;
-            connection.Close();
-        }
-
-
-
-
-
-        //кнокпка удаления в таблице Рейсы
-        private void BtnDelDbF_Click(object sender, EventArgs e)
-        {
-            FlightDelC();
-        }
-
-        private void FlightDelC()
-        {
-            connection.Open();
-            MySqlCommand command = new MySqlCommand("DELETE FROM `flight` WHERE `flight`.`id` = @id", connection);
-            command.Parameters.Add("@id", MySqlDbType.Int16).Value = GetIdR();
-            command.ExecuteNonQuery();
-            connection.Close();
-
-            dataGridReis.Rows.RemoveAt(dataGridReis.SelectedRows[0].Index);
-        }
-
-        private object GetIdR()
-        {
-            return dataGridReis.SelectedRows[0].Cells[0].Value;
-        }
-
-        private void BtnSaveDbF_Click(object sender, EventArgs e)
-        {
-            // Проверка на пустые поля ввода
-            if (string.IsNullOrEmpty(TextBoxNumF.Text) ||
-                string.IsNullOrEmpty(TextBoxDepartureСityF.Text) ||
-                string.IsNullOrEmpty(TextBoxArrivalСityF.Text) ||
-                string.IsNullOrEmpty(TextBoxDepartureTimeF.Text) ||
-                string.IsNullOrEmpty(TextBoxArrivalTimeF.Text))
-            {
-                MessageBox.Show("Пожалуйста, заполните все поля.");
-                return;
-            }
-
-            try
-            {
-              
-                connection.Open();
-
-                MySqlCommand command = new MySqlCommand(
-                    "INSERT INTO flight (Number , departureСity, arrivalСity, departureTime, arrivalTime) VALUES (@Number, @departureСity, @arrivalСity, @departureTime, @arrivalTime);",
-                    connection);
-
-                // Заполняем параметры значениями из текстовых полей
-                command.Parameters.Add("@Number", MySqlDbType.VarChar).Value = TextBoxNumF.Text;
-                command.Parameters.Add("@departureСity", MySqlDbType.VarChar).Value = TextBoxDepartureСityF.Text;
-                command.Parameters.Add("@arrivalСity", MySqlDbType.VarChar).Value = TextBoxArrivalСityF.Text;
-                command.Parameters.Add("@departureTime", MySqlDbType.VarChar).Value = TextBoxDepartureTimeF.Text;
-                command.Parameters.Add("@arrivalTime", MySqlDbType.VarChar).Value = TextBoxArrivalTimeF.Text;
-
-                command.ExecuteNonQuery();
-
-                connection.Close();
-
-
-                GetFlightDB(); 
-
-                MessageBox.Show("Данные успешно сохранены!");
-
-;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ошибка при сохранении данных: " + ex.Message);
-            }
-        }
-
-        private void dataGridCompany_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

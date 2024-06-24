@@ -222,7 +222,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShoowData";
             this.Text = "Airlinebooking";
-            this.Load += new System.EventHandler(this.ShoowData_Load);
+
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnbackmenu2)).EndInit();
