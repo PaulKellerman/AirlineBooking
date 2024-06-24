@@ -82,18 +82,22 @@ namespace TheAviationCompanyProgram
 
         private void BtnSaveShow_Click(object sender, EventArgs e)
         {
- 
             if (string.IsNullOrEmpty(TextBoxCompany2.Text) || string.IsNullOrEmpty(TextBoxFlight2.Text))
             {
                 MessageBox.Show("Пожалуйста, заполните все поля.", "Ошибка", MessageBoxButtons.OK);
-                return; 
+                return;
             }
 
-
+            // Сохранение данных (вы можете использовать класс FlightData, как в предыдущем примере)
             Buffer.TextBoxComapnyBuf = TextBoxCompany2.Text;
             Buffer.TextBoxFlightBuf = TextBoxFlight2.Text;
 
             MessageBox.Show("Сохранено", "", MessageBoxButtons.OK);
+
+            // Переход на новую форму
+            Form chooseoflocation = new ChoiceOfLocation(); // Замените "Form2" на название вашей новой формы
+            chooseoflocation.Show(); // Показ новой формы
+            this.Hide(); // Скрытие текущей формы (необязательно, но может быть логично)
         }
 
 

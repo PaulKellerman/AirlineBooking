@@ -57,6 +57,12 @@
       <DependentUpon>AddDataF.cs</DependentUpon>
     </Compile>
     <Compile Include="Buffer.cs" />
+    <Compile Include="ChoiceOfLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChoiceOfLocation.Designer.cs">
+      <DependentUpon>ChoiceOfLocation.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="Menu1.cs">
       <SubType>Form</SubType>
@@ -86,6 +92,9 @@
     </Compile>
     <EmbeddedResource Include="AddDataF.resx">
       <DependentUpon>AddDataF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChoiceOfLocation.resx">
+      <DependentUpon>ChoiceOfLocation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu1.resx">
       <DependentUpon>Menu1.cs</DependentUpon>
@@ -126,6 +135,13 @@
   <ItemGroup>
     <Content Include="picture\airlane.png" />
     <Content Include="picture\back.png" />
+    <None Include="Resources\Group 1.png" />
+    <None Include="Resources\image 1.png" />
+    <None Include="Resources\Mask group.png" />
+    <None Include="Resources\content_komponovka 1 %282%291.png" />
+    <None Include="Resources\content_komponovka 1 %282%29.png" />
+    <None Include="Resources\content_komponovka 1 %281%29.png" />
+    <None Include="Resources\content_komponovka 1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
