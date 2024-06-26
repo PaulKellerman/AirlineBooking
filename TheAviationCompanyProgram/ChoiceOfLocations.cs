@@ -1,16 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TheAviationCompanyProgram;
 
 namespace TheAviationCompanyProgram
 {
@@ -19,10 +12,7 @@ namespace TheAviationCompanyProgram
         // хранение данных о местах
         private Dictionary<string, SeatData> seatDataMap = new Dictionary<string, SeatData>();
 
-        
         private List<string> selectedSeats = new List<string>();
-
-        
         private System.Windows.Forms.Label[] seatLabels;
 
         // хранение исходных текстов Label
@@ -31,7 +21,31 @@ namespace TheAviationCompanyProgram
         public ChoiceOfLocations()
         {
             InitializeComponent();
+            InitializeSeatDataMap();
+            LoadOccupiedSeats();
 
+            Button[] buttons = new Button[105];
+            for (int i = 1; i <= 105; i++)
+            {
+                var button = this.Controls.Find("btnSeat" + i, true).FirstOrDefault() as Button;
+                if (button != null)
+                {
+                    button.Click += Button_Click;
+                }
+            }
+
+            // Инициализируем массив Label
+            seatLabels = new System.Windows.Forms.Label[] { labelS1, labelS2, labelS3, labelS4, labelS5 };
+
+            // сохранение исходных текстов Label
+            foreach (var label in seatLabels)
+            {
+                originalLabelTexts[label] = label.Text;
+            }
+        }
+
+        private void InitializeSeatDataMap()
+        {
             // все места ряда "F" - Эконом
             seatDataMap.Add("btnSeat1", new SeatData(3, "F", 4000, "Эконом"));
             seatDataMap.Add("btnSeat2", new SeatData(4, "F", 4000, "Эконом"));
@@ -146,28 +160,7 @@ namespace TheAviationCompanyProgram
             //все метса ряда "A" - Бизнес
             seatDataMap.Add("btnSeat104", new SeatData(1, "A", 8000, "Бизнес"));
             seatDataMap.Add("btnSeat105", new SeatData(2, "A", 8000, "Бизнес"));
-
-            Button[] buttons = new Button[105];
-
-            for (int i = 1; i <= 105; i++)
-            {
-                var button = this.Controls.Find("btnSeat" + i, true).FirstOrDefault() as Button;
-                if (button != null)
-                {
-                    button.Click += Button_Click;
-                }
-            }
-
-            // Инициализируем массив Label
-            seatLabels = new System.Windows.Forms.Label[] { labelS1, labelS2, labelS3, labelS4, labelS5 };
-
-            // сохранение исходных текстов Label
-            foreach (var label in seatLabels)
-            {
-                originalLabelTexts[label] = label.Text;
-            }
         }
-
 
         private void Button_Click(object sender, EventArgs e)
         {
@@ -179,7 +172,6 @@ namespace TheAviationCompanyProgram
             {
                 int index = selectedSeats.IndexOf(buttonKey);
                 selectedSeats.RemoveAt(index);
-
 
                 if (buttonKey == "btnSeat98" || buttonKey == "btnSeat99" || buttonKey == "btnSeat100" ||
                     buttonKey == "btnSeat101" || buttonKey == "btnSeat102" || buttonKey == "btnSeat103" ||
@@ -198,7 +190,6 @@ namespace TheAviationCompanyProgram
                     seatLabels[index].Text = originalLabelTexts[seatLabels[index]];
                 }
 
- 
                 for (int i = index; i < selectedSeats.Count; i++)
                 {
                     seatLabels[i].Text = seatLabels[i + 1].Text;
@@ -208,7 +199,6 @@ namespace TheAviationCompanyProgram
                 {
                     seatLabels[selectedSeats.Count].Text = originalLabelTexts[seatLabels[selectedSeats.Count]];
                 }
-
 
                 UpdateFullPrice();
             }
@@ -221,14 +211,12 @@ namespace TheAviationCompanyProgram
                     selectedSeats.Add(buttonKey);
                     clickedButton.BackColor = Color.Blue;
 
-
                     int index = selectedSeats.Count - 1;
                     if (seatDataMap.TryGetValue(buttonKey, out SeatData seatData))
                     {
                         seatLabels[index].Text = $"Ряд: {seatData.Row}, Место: {seatData.Place}, Стоимость: {seatData.Price}, Класс: {seatData.Class}";
                     }
 
-  
                     UpdateFullPrice();
                 }
                 else
@@ -241,7 +229,7 @@ namespace TheAviationCompanyProgram
         public int fullPrice = 0;
         private void UpdateFullPrice()
         {
-             fullPrice = 0;
+            fullPrice = 0;
             foreach (var seat in selectedSeats)
             {
                 if (seatDataMap.TryGetValue(seat, out SeatData seatData))
@@ -269,10 +257,6 @@ namespace TheAviationCompanyProgram
             }
         }
 
-
-
-
-
         private void btnbackmenu2_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -286,11 +270,6 @@ namespace TheAviationCompanyProgram
             SaveSelectedSeatsToDatabase();
         }
 
-
-
-
-
-        
         private void SaveSelectedSeatsToDatabase()
         {
             string connectionString = "server=localhost; port=3306; username=root; password=root; database=airport;";
@@ -319,7 +298,6 @@ namespace TheAviationCompanyProgram
             }
         }
 
-
         private void LoadOccupiedSeats()
         {
             string connectionString = "server=localhost; port=3306; username=root; password=root; database=airport;";
@@ -328,7 +306,7 @@ namespace TheAviationCompanyProgram
             {
                 connection.Open();
 
-                string query = "SELECT Place FROM choiceoflocation";
+                string query = "SELECT Row, Place FROM choiceoflocation";
 
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
@@ -336,20 +314,23 @@ namespace TheAviationCompanyProgram
                     {
                         while (reader.Read())
                         {
-                            string place = reader["Place"].ToString();
-                            var button = this.Controls.Find("btnSeat" + place, true).FirstOrDefault() as Button;
-                            if (button != null)
+                            int row = reader.GetInt32("Row");
+                            string place = reader.GetString("Place");
+                            string buttonKey = seatDataMap.FirstOrDefault(x => x.Value.Row == row && x.Value.Place == place).Key;
+
+                            if (!string.IsNullOrEmpty(buttonKey))
                             {
-                                button.BackColor = Color.Red; // Цвет занятых мест
-                                button.Enabled = false; // Отключение кнопки для занятых мест
+                                var button = this.Controls.Find(buttonKey, true).FirstOrDefault() as Button;
+                                if (button != null)
+                                {
+                                    button.BackColor = Color.Gray; 
+                                    button.Enabled = false; 
+                                }
                             }
                         }
                     }
                 }
             }
         }
-
-
-
     }
 }
