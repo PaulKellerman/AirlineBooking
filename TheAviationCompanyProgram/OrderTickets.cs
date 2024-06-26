@@ -74,15 +74,15 @@ namespace TheAviationCompanyProgram
         //функция проверяющая скидку
         public void CheckPrice()
         {
-            int price = 5000;
+            int price = Buffer.priceC;
 
             if (ArrivalDateTimePickerFall.Value.DayOfWeek == DayOfWeek.Saturday ||
                 ArrivalDateTimePickerFall.Value.DayOfWeek == DayOfWeek.Sunday ||
                 DepartureDateTimePicker.Value.DayOfWeek == DayOfWeek.Saturday ||
                 DepartureDateTimePicker.Value.DayOfWeek == DayOfWeek.Sunday)
             {
-
-                price += (int)(price * 0.1);
+                // Увеличиваем цену на 10%
+                price = (int)(price * 1.1);
             }
 
             LabelPrice.Text = price.ToString();

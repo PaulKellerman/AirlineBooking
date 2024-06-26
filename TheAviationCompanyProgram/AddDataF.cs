@@ -234,5 +234,9 @@ namespace TheAviationCompanyProgram
             dataGridCompany.Rows.RemoveAt(dataGridCompany.SelectedRows[0].Index);
         }
 
+        private void AddDataF_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

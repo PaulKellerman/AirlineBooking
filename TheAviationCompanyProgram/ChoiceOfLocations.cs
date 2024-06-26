@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
@@ -10,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheAviationCompanyProgram;
 
-namespace tasttag
+namespace TheAviationCompanyProgram
 {
     public partial class ChoiceOfLocations : Form
     {
@@ -144,7 +146,7 @@ namespace tasttag
             //все метса ряда "A" - Бизнес
             seatDataMap.Add("btnSeat104", new SeatData(1, "A", 8000, "Бизнес"));
             seatDataMap.Add("btnSeat105", new SeatData(2, "A", 8000, "Бизнес"));
-            // Подписываемся на событие Click для всех кнопок
+
             Button[] buttons = new Button[105];
 
             for (int i = 1; i <= 105; i++)
@@ -159,26 +161,26 @@ namespace tasttag
             // Инициализируем массив Label
             seatLabels = new System.Windows.Forms.Label[] { labelS1, labelS2, labelS3, labelS4, labelS5 };
 
-            // Сохраняем исходные тексты Label
+            // сохранение исходных текстов Label
             foreach (var label in seatLabels)
             {
                 originalLabelTexts[label] = label.Text;
             }
         }
 
-        // Обработчик события Click для кнопок
+
         private void Button_Click(object sender, EventArgs e)
         {
             Button clickedButton = (Button)sender;
             string buttonKey = clickedButton.Name;
 
-            // Проверка выбора места
+            // проверка выбрано ли место уже
             if (selectedSeats.Contains(buttonKey))
             {
                 int index = selectedSeats.IndexOf(buttonKey);
                 selectedSeats.RemoveAt(index);
 
-                // Изменение цвета с Lime на Green для определенных кнопок
+
                 if (buttonKey == "btnSeat98" || buttonKey == "btnSeat99" || buttonKey == "btnSeat100" ||
                     buttonKey == "btnSeat101" || buttonKey == "btnSeat102" || buttonKey == "btnSeat103" ||
                     buttonKey == "btnSeat104" || buttonKey == "btnSeat105")
@@ -190,13 +192,13 @@ namespace tasttag
                     clickedButton.BackColor = Color.Lime;
                 }
 
-                // Сбрасываем соответствующий Label в исходный текст
+                // сброс соответствующего текста к исходному тексту
                 if (index >= 0 && index < seatLabels.Length)
                 {
                     seatLabels[index].Text = originalLabelTexts[seatLabels[index]];
                 }
 
-                // Сдвигаем оставшиеся Label
+ 
                 for (int i = index; i < selectedSeats.Count; i++)
                 {
                     seatLabels[i].Text = seatLabels[i + 1].Text;
@@ -206,42 +208,45 @@ namespace tasttag
                 {
                     seatLabels[selectedSeats.Count].Text = originalLabelTexts[seatLabels[selectedSeats.Count]];
                 }
+
+
+                UpdateFullPrice();
             }
             else
             {
-                // Проверяем, не превышен ли лимит
+                // Проверка, не превышен ли лимит
                 if (selectedSeats.Count < seatLabels.Length)
                 {
-                    // Добавляем место в список выбранных
+                    // Добавление места в список выбранных мест
                     selectedSeats.Add(buttonKey);
                     clickedButton.BackColor = Color.Blue;
 
-                    // Выводим информацию в соответствующий Label
+
                     int index = selectedSeats.Count - 1;
                     if (seatDataMap.TryGetValue(buttonKey, out SeatData seatData))
                     {
-                        seatLabels[index].Text = $"Ряд: {seatData.Row}, Место: {seatData.Place}, Стоимость: {seatData.Value}, Класс: {seatData.Class}";
+                        seatLabels[index].Text = $"Ряд: {seatData.Row}, Место: {seatData.Place}, Стоимость: {seatData.Price}, Класс: {seatData.Class}";
                     }
+
+  
+                    UpdateFullPrice();
                 }
                 else
                 {
                     MessageBox.Show("Вы можете выбрать максимум 5 мест.");
                 }
             }
-
-            // Обновляем полную стоимость
-            UpdateFullPrice();
         }
 
         public int fullPrice = 0;
         private void UpdateFullPrice()
         {
-            
+             fullPrice = 0;
             foreach (var seat in selectedSeats)
             {
                 if (seatDataMap.TryGetValue(seat, out SeatData seatData))
                 {
-                    fullPrice += seatData.Value;
+                    fullPrice += seatData.Price;
                 }
             }
             FullPrice.Text = $"Полная стоимость: {fullPrice}";
@@ -252,27 +257,21 @@ namespace tasttag
         {
             public int Row { get; set; }
             public string Place { get; set; }
-            public int Value { get; set; }
+            public int Price { get; set; }
             public string Class { get; set; }
 
-            public SeatData(int row, string place, int value, string classType)
+            public SeatData(int row, string place, int price, string classType)
             {
                 Row = row;
                 Place = place;
-                Value = value;
+                Price = price;
                 Class = classType;
             }
         }
 
-        private void btnSeat2_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnbackmenu2_Click(object sender, EventArgs e)
         {
@@ -283,7 +282,74 @@ namespace tasttag
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Buffer.priceC = FullPrice;
+            Buffer.priceC = fullPrice;
+            SaveSelectedSeatsToDatabase();
         }
+
+
+
+
+
+        
+        private void SaveSelectedSeatsToDatabase()
+        {
+            string connectionString = "server=localhost; port=3306; username=root; password=root; database=airport;";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                foreach (var seat in selectedSeats)
+                {
+                    if (seatDataMap.TryGetValue(seat, out SeatData seatData))
+                    {
+                        string query = "INSERT INTO choiceoflocation (Row, Place, Price, Class) VALUES (@Row, @Place, @Price, @Class)";
+
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@Row", seatData.Row);
+                            command.Parameters.AddWithValue("@Place", seatData.Place);
+                            command.Parameters.AddWithValue("@Price", seatData.Price);
+                            command.Parameters.AddWithValue("@Class", seatData.Class);
+
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+        }
+
+
+        private void LoadOccupiedSeats()
+        {
+            string connectionString = "server=localhost; port=3306; username=root; password=root; database=airport;";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT Place FROM choiceoflocation";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string place = reader["Place"].ToString();
+                            var button = this.Controls.Find("btnSeat" + place, true).FirstOrDefault() as Button;
+                            if (button != null)
+                            {
+                                button.BackColor = Color.Red; // Цвет занятых мест
+                                button.Enabled = false; // Отключение кнопки для занятых мест
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
     }
 }
