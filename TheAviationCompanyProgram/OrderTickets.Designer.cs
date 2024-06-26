@@ -201,6 +201,7 @@
             this.LabelPrice.Size = new System.Drawing.Size(46, 22);
             this.LabelPrice.TabIndex = 23;
             this.LabelPrice.Text = "0000";
+            this.LabelPrice.Click += new System.EventHandler(this.LabelPrice_Click);
             // 
             // label6
             // 

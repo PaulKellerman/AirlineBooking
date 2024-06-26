@@ -57,11 +57,11 @@
       <DependentUpon>AddDataF.cs</DependentUpon>
     </Compile>
     <Compile Include="Buffer.cs" />
-    <Compile Include="ChoiceOfLocation.cs">
+    <Compile Include="ChoiceOfLocations.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChoiceOfLocation.Designer.cs">
-      <DependentUpon>ChoiceOfLocation.cs</DependentUpon>
+    <Compile Include="ChoiceOfLocations.Designer.cs">
+      <DependentUpon>ChoiceOfLocations.cs</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="Menu1.cs">
@@ -93,8 +93,8 @@
     <EmbeddedResource Include="AddDataF.resx">
       <DependentUpon>AddDataF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChoiceOfLocation.resx">
-      <DependentUpon>ChoiceOfLocation.cs</DependentUpon>
+    <EmbeddedResource Include="ChoiceOfLocations.resx">
+      <DependentUpon>ChoiceOfLocations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu1.resx">
       <DependentUpon>Menu1.cs</DependentUpon>

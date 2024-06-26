@@ -13,5 +13,7 @@ namespace TheAviationCompanyProgram
         public static string TextBoxFlightBuf = "Выберите номер рейса";
 
         public static bool CheckString = true;
+
+        public static int priceC = 0;
     }
 }

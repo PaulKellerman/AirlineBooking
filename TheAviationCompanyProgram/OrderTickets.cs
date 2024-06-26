@@ -173,5 +173,9 @@ namespace TheAviationCompanyProgram
             MessageBox.Show("Успешно ", "", MessageBoxButtons.OK);
         }
 
+        private void LabelPrice_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

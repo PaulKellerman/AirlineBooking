@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TheAviationCompanyProgram;
+using tasttag;
 
 namespace TheAviationCompanyProgram
 {
@@ -94,10 +96,9 @@ namespace TheAviationCompanyProgram
 
             MessageBox.Show("Сохранено", "", MessageBoxButtons.OK);
 
-            // Переход на новую форму
-            Form chooseoflocation = new ChoiceOfLocation(); // Замените "Form2" на название вашей новой формы
-            chooseoflocation.Show(); // Показ новой формы
-            this.Hide(); // Скрытие текущей формы (необязательно, но может быть логично)
+            Form chooseoflocations = new ChoiceOfLocations(); 
+            chooseoflocations.Show(); 
+            this.Hide(); 
         }
 
 
