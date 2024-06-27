@@ -204,7 +204,7 @@ namespace TheAviationCompanyProgram
             }
             else
             {
-                // Проверка, не превышен ли лимит
+                // проверка на лимит кнопок
                 if (selectedSeats.Count < seatLabels.Length)
                 {
                     // Добавление места в список выбранных мест
@@ -240,7 +240,7 @@ namespace TheAviationCompanyProgram
             FullPrice.Text = $"Полная стоимость: {fullPrice}";
         }
 
-        // Класс для хранения данных о месте
+        // класс для хранения данных о месте
         private class SeatData
         {
             public int Row { get; set; }
@@ -266,6 +266,12 @@ namespace TheAviationCompanyProgram
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Все успешно сохранилось!", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           
+            this.Close();
+            Menu2 menu2 = new Menu2();
+            menu2.Show();
+
             Buffer.priceC = fullPrice;
             SaveSelectedSeatsToDatabase();
         }
@@ -297,6 +303,10 @@ namespace TheAviationCompanyProgram
                 }
             }
         }
+
+
+
+
 
         private void LoadOccupiedSeats()
         {
